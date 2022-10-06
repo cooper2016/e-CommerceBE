@@ -63,7 +63,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   // delete a category by its `id` value
   try {
     const categoryData = await Reader.destroy({
@@ -73,7 +73,7 @@ router.delete("/:id", (req, res) => {
     });
 
     if (!categoryData) {
-      res.status(404).json({ message: 'No category found with that id!' });
+      res.status(404).json({ message: "No category found with that id!" });
       return;
     }
 
